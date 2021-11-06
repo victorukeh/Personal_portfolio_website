@@ -1,3 +1,4 @@
+import React, {useRef} from "react";
 import { Link } from 'react-router-dom'
 import Button from './Button2'
 const Dance = ({
@@ -11,9 +12,21 @@ const Dance = ({
   minColor,
   maxColor,
 }) => {
+  
+  const cardRef = useRef();
+  const handleMouseMove = (e) => {
+//     The rest of your code goes here
+//     Something like what you have in card.js
+//     Maybe
+    
+    let xAxis = (window.innerwidth / 2 - e.pageX) /25;
+    let yAxis = (window.innerwidth / 2 - e.pageY) /5;
+    card.current.getElementsByClassName.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`
+  }
+  
   return (
-      <div className='container2'>
-        <div className='card2'>
+      <div onMouseMove={(e) => handleMouseMove(e) } className='container2'>
+        <div ref={cardRef} className='card2'>
           <div class='logo2'>
             <div
               class='circle'
